@@ -1,0 +1,12 @@
+M.Sc. Artificial Intelligence student, looking for an AI / ML working student role. German B1, English fluent.
+
+Skills: Python, SQL, PyTorch, scikit-learn, XGBoost, SHAP, MLflow, FastAPI, Docker, Git, pytest, GitHub Actions,
+Streamlit, LangGraph, LangChain, retrieval-augmented generation (RAG), Qdrant, vector databases, LLM fine-tuning (QLoRA),
+agents, MCP, NLP, computer vision (YOLO).
+
+Projects:
+- Document-processing agent with LangGraph, human-in-the-loop review, OCR and an MCP server for ERP lookups.
+- Legal question-answering assistant: multi-agent RAG with a knowledge graph and a QLoRA fine-tuned classifier.
+- Text-to-SQL agent with a guardrail layer against adversarial prompts, evaluated on 60 questions.
+- Electricity price forecasting and battery arbitrage: 11 models, walk-forward validation, MLflow tracking, SHAP.
+- Evaluation harness that catches model regressions in CI.

@@ -56,11 +56,16 @@ def table(df: pd.DataFrame) -> str:
     return "\n".join([head, "|" + "---|" * (len(df.columns) + 1), *rows])
 
 
+def load_relevant(path: str = "data/postings.csv") -> tuple[pd.DataFrame, int]:
+    """Postings that are really AI/data roles (stubs that only link out are dropped), and how many were scraped."""
+    df = pd.read_csv(path).fillna("")
+    df_len = len(df)
+    df = df[df.description.str.len() > 200]
+    return df[df.title.str.lower().str.contains(RELEVANT_TITLE, regex=True)].copy(), df_len
+
+
 def main() -> None:
-    df = pd.read_csv("data/postings.csv").fillna("")
-    scraped = len(df)
-    df = df[df.description.str.len() > 200]  # drop stubs that only link out
-    df = df[df.title.str.lower().str.contains(RELEVANT_TITLE, regex=True)].copy()
+    df, scraped = load_relevant()
     text = (df.title + " " + df.description).str.lower()
     df["lang"] = [("English" if len(re.findall(EN_WORDS, t)) > len(re.findall(DE_WORDS, t)) else "German") for t in text]
     df["german"] = df.description.map(german_level)
