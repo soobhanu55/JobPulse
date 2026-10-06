@@ -87,3 +87,7 @@ pip install -r requirements-embeddings.txt
 python match.py examples/sample_cv.txt --k 5
 python evaluate_matching.py   # writes matching_results.md
 ```
+
+## Test coverage
+
+17 tests, **59% line coverage** (CI fails below 50%). The scraping and plotting scripts are not unit-tested; the matching, evaluation and rules logic is.

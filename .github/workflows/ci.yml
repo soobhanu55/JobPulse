@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt pytest-cov
       - run: python test_rules.py
       # matcher tests use a fake embedder, so CI never downloads the 1 GB model
-      - run: pytest -q
+      - run: pytest -q --cov=. --cov-report=term --cov-fail-under=50
